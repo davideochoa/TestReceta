@@ -19,20 +19,23 @@ import javax.ws.rs.core.MediaType;
 public class TestReceta {
 
     public TestReceta() {
-        NewJerseyClient njc = new NewJerseyClient();
-        
-        //RegistroExistencia re = new RegistroExistencia();
+                
         Client client = ClientBuilder.newClient();
-        WebTarget webTarget = client.target("http://localhost:8080/Receta/webresources/ExistenciaExterna/listarExistencias");        
-        List<RegistroExistencia> bitacora = webTarget.request(MediaType.APPLICATION_JSON).get(new GenericType<List<RegistroExistencia>>() {});
+        
+        WebTarget webTarget = client.target("http://localhost:8080/Receta/webresources").path("ExistenciaExterna");  
+        
+        WebTarget resource = webTarget;
+        resource = resource.path("listarExistencias");
+        
+        List<RegistroExistencia> bitacora = resource.request(MediaType.APPLICATION_JSON).get(new GenericType<List<RegistroExistencia>>(){});
         
         for(RegistroExistencia p: bitacora) {
  
             System.out.println(p.getIdSurtidor());
             System.out.println(p.getClave());
             System.out.println(p.getCantidad());
-
         }
+        
         
         
     }
