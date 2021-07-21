@@ -5,15 +5,12 @@
  */
 package testreceta;
 
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation.Builder;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.MediaType;
-import java.text.MessageFormat;
 import java.util.List;
 
 /**
@@ -21,66 +18,36 @@ import java.util.List;
  * @author Usuario
  */
 public class TestReceta {
-
-    public TestReceta() {
-                
-        Client client = ClientBuilder.newClient();
+    public TestReceta() { 
+        WebResource_ExistenciaExterna WR_EE = new WebResource_ExistenciaExterna();
         
-        WebTarget webTarget = client.target("http://localhost:8080/Receta/webresources").path("ExistenciaExterna");  
-        
-        //*********** LISTAR EXISTENCIAS ***************************
-        System.out.println("******************** LISTAR EXISTENCIAS *********************");
-        WebTarget resource = webTarget;
-        resource = resource.path("listarExistencias");        
-        //System.out.println(resource.getUri().getPath());
-        
-        List<RegistroExistencia> bitacora = resource.request(MediaType.APPLICATION_JSON).get(new GenericType<List<RegistroExistencia>>(){});
+        System.out.println("******************** LISTAR EXISTENCIAS *********************");        
+        List<RegistroExistencia> bitacora = WR_EE.listarExistencia();
         
         for(RegistroExistencia p: bitacora) { 
-            System.out.println(p.getIdSurtidor());
-            System.out.println(p.getClave());
-            System.out.println(p.getCantidad());
+            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
         }
         
-        // ******************** AGREGAR EXISTENCIAS **********************
+        /*
+        System.out.println();
         System.out.println("******************** AGREGAR EXISTENCIAS *********************");
-        resource = webTarget;
-        resource = resource.path("agregarExistencia");
-        //System.out.println(resource.getUri().getPath());
-        
         RegistroExistencia re = new RegistroExistencia();
-        re.setIdSurtidor(4);
-        re.setClave("104");
-        re.setCantidad(40);
+        re.setIdSurtidor(6);
+        re.setClave("106");
+        re.setCantidad(60);
         
-        bitacora = resource.request(MediaType.APPLICATION_JSON)
-                                    .post(Entity.entity(re, MediaType.APPLICATION_JSON),
-                                            new GenericType<List<RegistroExistencia>>(){});
-        
+        bitacora = WR_EE.agregarExistencia(re);
         for(RegistroExistencia p: bitacora) { 
-            System.out.println(p.getIdSurtidor());
-            System.out.println(p.getClave());
-            System.out.println(p.getCantidad());
+            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
         }
-        
-        //*********** BUSCAR EXISTENCIA *****************
+        */
+        RegistroExistencia re = new RegistroExistencia();
+        System.out.println();
         System.out.println("******************** BUSCAR EXISTENCIA *********************");
-        int IdSurtidor = 3;
-        String clave = "103";
-        
-        resource = webTarget;
-        resource = resource.path(MessageFormat.format("buscarExistencia/{0}/{1}", new Object[]{IdSurtidor, clave}));
-                
-        re = resource.request().post(null, new GenericType<RegistroExistencia>(){});
-        System.out.println(re.getIdSurtidor());
-        System.out.println(re.getClave());
-        System.out.println(re.getCantidad());
-        
+        re = WR_EE.buscarExistencia(5,"105");
+        System.out.println(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad());
     }
     
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         new TestReceta();
     }
