@@ -29,34 +29,33 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        JB_ObtenerExistencias = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        JTA_ListadoExistencias = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         JTF_IdSurtidor = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        JTF_Clave = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        JTF_Cantidad = new javax.swing.JTextField();
+        JB_Agregar = new javax.swing.JButton();
+        JB_Buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cliente WEB SERVICE RESTful");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        jButton1.setText("Obtener Existencias");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JB_ObtenerExistencias.setText("Obtener Existencias");
+        JB_ObtenerExistencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JB_ObtenerExistenciasActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        JTA_ListadoExistencias.setColumns(20);
+        JTA_ListadoExistencias.setLineWrap(true);
+        JTA_ListadoExistencias.setRows(5);
+        jScrollPane1.setViewportView(JTA_ListadoExistencias);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar/Buscar Registro"));
 
@@ -66,23 +65,23 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Clave:");
 
-        jTextField2.setToolTipText("Texto que represente una clave de medicamento");
+        JTF_Clave.setToolTipText("Texto que represente una clave de medicamento");
 
         jLabel3.setText("Cantidad:");
 
-        jTextField3.setToolTipText("Cantidad del producto (entero sin signo)");
+        JTF_Cantidad.setToolTipText("Cantidad del producto (entero sin signo)");
 
-        jButton2.setText("AGREGAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JB_Agregar.setText("AGREGAR");
+        JB_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JB_AgregarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("BUSCAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JB_Buscar.setText("BUSCAR");
+        JB_Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JB_BuscarActionPerformed(evt);
             }
         });
 
@@ -102,16 +101,16 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JTF_IdSurtidor)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
+                                    .addComponent(JTF_Clave, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField3)))
+                                .addComponent(JTF_Cantidad)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(JB_Agregar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addComponent(JB_Buscar)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -124,15 +123,15 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTF_Clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTF_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                    .addComponent(JB_Buscar)
+                    .addComponent(JB_Agregar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -140,102 +139,101 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(0, 139, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JB_ObtenerExistencias)
+                        .addGap(40, 40, 40)))
+                .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addComponent(JB_ObtenerExistencias)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        RegistroExistencia re = new RegistroExistencia();
-        re.setIdSurtidor(Integer.parseInt(JTF_IdSurtidor.getText()));
-        re.setClave(jTextField2.getText());
-        re.setCantidad(Integer.parseInt(jTextField3.getText()));
+    private void JB_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AgregarActionPerformed
         
-        List<RegistroExistencia>bitacora = WR_EE.agregarExistencia(re);
-        
-        jTextArea1.removeAll();
-        jTextArea1.setText("");
-        
-        for(RegistroExistencia p: bitacora) { 
-            jTextArea1.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+"\n"); 
-            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+        try {
+            int IdSurtidor = Integer.parseInt(JTF_IdSurtidor.getText());
+            String clave = JTF_Clave.getText();
+            int cantidad = Integer.parseInt(JTF_Cantidad.getText());
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            RegistroExistencia re = new RegistroExistencia();
+            re.setIdSurtidor(IdSurtidor);
+            re.setClave(clave);
+            re.setCantidad(cantidad);
+
+            List<RegistroExistencia>bitacora = WR_EE.agregarExistencia(re);
+
+            JTA_ListadoExistencias.removeAll();
+            JTA_ListadoExistencias.setText("");
+
+            for(RegistroExistencia p: bitacora) { 
+                JTA_ListadoExistencias.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+"\n"); 
+                System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
+            }
+        }
+        catch(NumberFormatException er){}
+        
+        JTF_IdSurtidor.setText("");
+        JTF_Clave.setText("");
+        JTF_Cantidad.setText("");
+    }//GEN-LAST:event_JB_AgregarActionPerformed
+
+    private void JB_ObtenerExistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ObtenerExistenciasActionPerformed
         List<RegistroExistencia> bitacora = WR_EE.listarExistencia();
         
-        jTextArea1.removeAll();
-        jTextArea1.setText("");
+        JTA_ListadoExistencias.removeAll();
+        JTA_ListadoExistencias.setText("");
         
         for(RegistroExistencia p: bitacora) { 
-            jTextArea1.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+"\n");            
-            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
+            JTA_ListadoExistencias.append(p.getIdSurtidor()+" : "+
+                                            p.getClave()+" : "+
+                                            p.getCantidad()+" : "+
+                                            p.getTimestamp()+"\n");            
+            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+" : "+p.getTimestamp());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JB_ObtenerExistenciasActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void JB_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_BuscarActionPerformed
         RegistroExistencia re = new RegistroExistencia();
         
-        re = WR_EE.buscarExistencia(Integer.parseInt(JTF_IdSurtidor.getText()),jTextField2.getText());
-        
-        jTextArea1.removeAll();
-        jTextArea1.setText("");
-        
-        jTextArea1.append(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad()+"\n"); 
-        System.out.println(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad());
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+            int IdSurtidor = Integer.parseInt(JTF_IdSurtidor.getText());
+            String clave = JTF_Clave.getText();
+            
+            re = WR_EE.buscarExistencia(IdSurtidor,clave);
 
-        /* Create and display the form */
+            JTA_ListadoExistencias.removeAll();
+            JTA_ListadoExistencias.setText("");
+
+            JTA_ListadoExistencias.append(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad()+"\n"); 
+            System.out.println(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad());
+        }
+        catch(NumberFormatException er){}
+        
+        JTF_IdSurtidor.setText("");
+        JTF_Clave.setText("");
+        JTF_Cantidad.setText("");
+    }//GEN-LAST:event_JB_BuscarActionPerformed
+
+
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewJFrame().setVisible(true);
@@ -244,17 +242,17 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Agregar;
+    private javax.swing.JButton JB_Buscar;
+    private javax.swing.JButton JB_ObtenerExistencias;
+    private javax.swing.JTextArea JTA_ListadoExistencias;
+    private javax.swing.JTextField JTF_Cantidad;
+    private javax.swing.JTextField JTF_Clave;
     private javax.swing.JTextField JTF_IdSurtidor;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
