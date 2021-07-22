@@ -5,6 +5,7 @@
  */
 package testreceta;
 
+import java.util.List;
 import javax.swing.JFrame;
 
 /**
@@ -12,10 +13,8 @@ import javax.swing.JFrame;
  * @author Usuario
  */
 public class NewJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewJFrame
-     */
+    WebResource_ExistenciaExterna WR_EE = new WebResource_ExistenciaExterna();
+    
     public NewJFrame() {
         initComponents();
         
@@ -48,8 +47,14 @@ public class NewJFrame extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         jButton1.setText("Obtener Existencias");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -75,6 +80,11 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jButton3.setText("BUSCAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,9 +130,9 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -158,8 +168,45 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        RegistroExistencia re = new RegistroExistencia();
+        re.setIdSurtidor(Integer.parseInt(JTF_IdSurtidor.getText()));
+        re.setClave(jTextField2.getText());
+        re.setCantidad(Integer.parseInt(jTextField3.getText()));
+        
+        List<RegistroExistencia>bitacora = WR_EE.agregarExistencia(re);
+        
+        jTextArea1.removeAll();
+        jTextArea1.setText("");
+        
+        for(RegistroExistencia p: bitacora) { 
+            jTextArea1.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+"\n"); 
+            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        List<RegistroExistencia> bitacora = WR_EE.listarExistencia();
+        
+        jTextArea1.removeAll();
+        jTextArea1.setText("");
+        
+        for(RegistroExistencia p: bitacora) { 
+            jTextArea1.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+"\n");            
+            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        RegistroExistencia re = new RegistroExistencia();
+        
+        re = WR_EE.buscarExistencia(Integer.parseInt(JTF_IdSurtidor.getText()),jTextField2.getText());
+        
+        jTextArea1.removeAll();
+        jTextArea1.setText("");
+        
+        jTextArea1.append(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad()+"\n"); 
+        System.out.println(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad());
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
