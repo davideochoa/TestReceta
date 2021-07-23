@@ -26,27 +26,28 @@ public class WebResource_ExistenciaExterna {
         webTarget = client.target("http://localhost:8080/Receta/webresources/ExistenciaExterna");         
     }
     
-    public List<RegistroExistencia> listarExistencia(){        
+    public List<RegistroExistenciaCLI> listarExistencia(){        
         resource = webTarget;        
-        List<RegistroExistencia> bitacora = resource.path("listarExistencias")
+        
+        List<RegistroExistenciaCLI> bitacora = resource.path("listarExistencias")
                                                     .request(MediaType.APPLICATION_JSON)
-                                                    .get(new GenericType<List<RegistroExistencia>>(){});       
+                                                    .get(new GenericType<List<RegistroExistenciaCLI>>(){});       
         return bitacora;
     }
     
-    public List<RegistroExistencia> agregarExistencia(RegistroExistencia re){
+    public List<RegistroExistenciaCLI> agregarExistencia(RegistroExistenciaCLI re){
         resource = webTarget;
-        List<RegistroExistencia> bitacora = resource.path("agregarExistencia")
+        List<RegistroExistenciaCLI> bitacora = resource.path("agregarExistencia")
                                                     .request(MediaType.APPLICATION_JSON)
-                                                    .put(Entity.entity(re, MediaType.APPLICATION_JSON),new GenericType<List<RegistroExistencia>>(){});
+                                                    .put(Entity.entity(re, MediaType.APPLICATION_JSON),new GenericType<List<RegistroExistenciaCLI>>(){});
         return bitacora;
     }
     
-    public RegistroExistencia buscarExistencia(int IdSurtidor,String clave){        
+    public RegistroExistenciaCLI buscarExistencia(int IdSurtidor,String clave){        
         resource = webTarget;
-        RegistroExistencia re = resource.path(MessageFormat.format("buscarExistencia/{0}/{1}", new Object[]{IdSurtidor, clave}))
+        RegistroExistenciaCLI re = resource.path(MessageFormat.format("buscarExistencia/{0}/{1}", new Object[]{IdSurtidor, clave}))
                                                             .request()
-                                                            .post(null, new GenericType<RegistroExistencia>(){});       
+                                                            .post(null, new GenericType<RegistroExistenciaCLI>(){});       
         return re;
     }
 }

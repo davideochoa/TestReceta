@@ -5,46 +5,40 @@
  */
 package testreceta;
 
+import jakarta.json.bind.annotation.JsonbDateFormat;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
-/**
- *
- * @author Usuario
- */
-public class RegistroExistencia {
+public class RegistroExistenciaCLI {
     private int idSurtidor = 0;
     private String clave = "";
     private int cantidad  = 0;
-    private String timestamp = "";
+    @JsonbDateFormat("dd/MM/yyyy") 
+    private Timestamp  timestamp = new Timestamp(1);
     private long milisegundos = 0;
-
-    public RegistroExistencia() {
-     
-    }
+    //timestamp - dd/MM/yyyy HH:mm:ss
+    public RegistroExistenciaCLI() {}
         
-    public RegistroExistencia(int idSurtidor, String clave, int cantidad) {
+    public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad) {
         this.setIdSurtidor(idSurtidor);
         this.setClave(clave);
         this.setCantidad(cantidad);
     }
     
-    public RegistroExistencia(int idSurtidor, String clave, int cantidad,Timestamp timestamp) {
+    public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad,Timestamp timestamp) {
         this.setIdSurtidor(idSurtidor);
         this.setClave(clave);
         this.setCantidad(cantidad);
         this.setTimestamp(timestamp);
     }
-    
-     public String getTimestamp() {
+
+    public Timestamp  getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyyy HH:mm:ss");
-        milisegundos = timestamp.getTime();
-        
-        this.timestamp = format.format(timestamp);
+    public void setTimestamp(Timestamp  timestamp) {
+        //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyyy HH:mm:ss");
+        this.milisegundos = timestamp.getTime();        
+        this.timestamp = timestamp;
     }
 
     public int getIdSurtidor() {

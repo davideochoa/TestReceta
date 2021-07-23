@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class TestReceta {
     public TestReceta() { 
+        /*
         WebResource_ExistenciaExterna WR_EE = new WebResource_ExistenciaExterna();
         
         System.out.println("******************** LISTAR EXISTENCIAS *********************");        
@@ -22,7 +23,7 @@ public class TestReceta {
             System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
         }
         
-        /*
+        
         System.out.println();
         System.out.println("******************** AGREGAR EXISTENCIAS *********************");
         RegistroExistencia re = new RegistroExistencia();
@@ -34,12 +35,13 @@ public class TestReceta {
         for(RegistroExistencia p: bitacora) { 
             System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
         }
-        */
+        
         RegistroExistencia re = new RegistroExistencia();
         System.out.println();
         System.out.println("******************** BUSCAR EXISTENCIA *********************");
         re = WR_EE.buscarExistencia(5,"105");
         System.out.println(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad());
+        */
     }
     
     public static void main(String[] args) {

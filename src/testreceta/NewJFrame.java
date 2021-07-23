@@ -6,7 +6,6 @@
 package testreceta;
 
 import java.util.List;
-import javax.swing.JFrame;
 
 /**
  *
@@ -173,17 +172,17 @@ public class NewJFrame extends javax.swing.JFrame {
             String clave = JTF_Clave.getText();
             int cantidad = Integer.parseInt(JTF_Cantidad.getText());
 
-            RegistroExistencia re = new RegistroExistencia();
+            RegistroExistenciaCLI re = new RegistroExistenciaCLI();
             re.setIdSurtidor(IdSurtidor);
             re.setClave(clave);
             re.setCantidad(cantidad);
 
-            List<RegistroExistencia>bitacora = WR_EE.agregarExistencia(re);
+            List<RegistroExistenciaCLI>bitacora = WR_EE.agregarExistencia(re);
 
             JTA_ListadoExistencias.removeAll();
             JTA_ListadoExistencias.setText("");
 
-            for(RegistroExistencia p: bitacora) { 
+            for(RegistroExistenciaCLI p: bitacora) { 
                 JTA_ListadoExistencias.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+"\n"); 
                 System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
             }
@@ -196,22 +195,22 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_AgregarActionPerformed
 
     private void JB_ObtenerExistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ObtenerExistenciasActionPerformed
-        List<RegistroExistencia> bitacora = WR_EE.listarExistencia();
+        List<RegistroExistenciaCLI> bitacora = WR_EE.listarExistencia();
         
         JTA_ListadoExistencias.removeAll();
         JTA_ListadoExistencias.setText("");
         
-        for(RegistroExistencia p: bitacora) { 
+        for(RegistroExistenciaCLI p: bitacora) { 
             JTA_ListadoExistencias.append(p.getIdSurtidor()+" : "+
                                             p.getClave()+" : "+
                                             p.getCantidad()+" : "+
-                                            p.getTimestamp()+"\n");            
+                                            p.toString()+"\n");            
             System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+" : "+p.getTimestamp());
         }
     }//GEN-LAST:event_JB_ObtenerExistenciasActionPerformed
 
     private void JB_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_BuscarActionPerformed
-        RegistroExistencia re = new RegistroExistencia();
+        RegistroExistenciaCLI re = new RegistroExistenciaCLI();
         
         try {
             int IdSurtidor = Integer.parseInt(JTF_IdSurtidor.getText());
