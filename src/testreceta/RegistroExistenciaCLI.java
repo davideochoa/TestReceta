@@ -5,17 +5,14 @@
  */
 package testreceta;
 
-import jakarta.json.bind.annotation.JsonbDateFormat;
-import java.sql.Timestamp;
+import java.sql.Date;
+import org.joda.time.LocalDate;
 
 public class RegistroExistenciaCLI {
     private int idSurtidor = 0;
     private String clave = "";
     private int cantidad  = 0;
-    @JsonbDateFormat("dd/MM/yyyy") 
-    private Timestamp  timestamp = new Timestamp(1);
-    private long milisegundos = 0;
-    //timestamp - dd/MM/yyyy HH:mm:ss
+    private LocalDate fecha;
     public RegistroExistenciaCLI() {}
         
     public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad) {
@@ -24,21 +21,20 @@ public class RegistroExistenciaCLI {
         this.setCantidad(cantidad);
     }
     
-    public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad,Timestamp timestamp) {
+    public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad,long time) {
         this.setIdSurtidor(idSurtidor);
         this.setClave(clave);
         this.setCantidad(cantidad);
-        this.setTimestamp(timestamp);
+        this.setFecha(new LocalDate(time));
     }
 
-    public Timestamp  getTimestamp() {
-        return timestamp;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setTimestamp(Timestamp  timestamp) {
+    public void setFecha(LocalDate fecha) {
         //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyyy HH:mm:ss");
-        this.milisegundos = timestamp.getTime();        
-        this.timestamp = timestamp;
+        this.fecha = fecha;
     }
 
     public int getIdSurtidor() {

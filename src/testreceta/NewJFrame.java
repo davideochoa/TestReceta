@@ -5,6 +5,7 @@
  */
 package testreceta;
 
+import jakarta.json.bind.annotation.JsonbDateFormat;
 import java.util.List;
 
 /**
@@ -183,8 +184,8 @@ public class NewJFrame extends javax.swing.JFrame {
             JTA_ListadoExistencias.setText("");
 
             for(RegistroExistenciaCLI p: bitacora) { 
-                JTA_ListadoExistencias.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+"\n"); 
-                System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad());
+                JTA_ListadoExistencias.append(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+" : "+p.getFecha().toString()+"\n"); 
+                System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+" : "+p.getFecha().toString());
             }
         }
         catch(NumberFormatException er){}
@@ -204,8 +205,8 @@ public class NewJFrame extends javax.swing.JFrame {
             JTA_ListadoExistencias.append(p.getIdSurtidor()+" : "+
                                             p.getClave()+" : "+
                                             p.getCantidad()+" : "+
-                                            p.toString()+"\n");            
-            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+" : "+p.getTimestamp());
+                                            p.getFecha().toString()+"\n");            
+            System.out.println(p.getIdSurtidor()+" : "+p.getClave()+" : "+p.getCantidad()+" : "+p.getFecha());
         }
     }//GEN-LAST:event_JB_ObtenerExistenciasActionPerformed
 
@@ -221,8 +222,8 @@ public class NewJFrame extends javax.swing.JFrame {
             JTA_ListadoExistencias.removeAll();
             JTA_ListadoExistencias.setText("");
 
-            JTA_ListadoExistencias.append(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad()+"\n"); 
-            System.out.println(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad());
+            JTA_ListadoExistencias.append(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad()+" : "+re.getFecha()+"\n"); 
+            System.out.println(re.getIdSurtidor()+" : "+re.getClave()+" : "+re.getCantidad()+" : "+re.getFecha());
         }
         catch(NumberFormatException er){}
         
