@@ -5,14 +5,14 @@
  */
 package testreceta;
 
-import java.sql.Date;
-import org.joda.time.LocalDate;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class RegistroExistenciaCLI {
     private int idSurtidor = 0;
     private String clave = "";
     private int cantidad  = 0;
-    private LocalDate fecha;
+    private String fecha;
     public RegistroExistenciaCLI() {}
         
     public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad) {
@@ -21,20 +21,20 @@ public class RegistroExistenciaCLI {
         this.setCantidad(cantidad);
     }
     
-    public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad,long time) {
+    public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad,Timestamp timestamp) {
         this.setIdSurtidor(idSurtidor);
         this.setClave(clave);
         this.setCantidad(cantidad);
-        this.setFecha(new LocalDate(time));
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyyy HH:mm:ss");        
+        this.setFecha(format.format(timestamp));
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
-        //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyyy HH:mm:ss");
-        this.fecha = fecha;
+    public void setFecha(String timestamp) {
+        this.fecha = timestamp;
     }
 
     public int getIdSurtidor() {
