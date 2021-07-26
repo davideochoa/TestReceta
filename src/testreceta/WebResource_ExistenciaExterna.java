@@ -30,24 +30,24 @@ public class WebResource_ExistenciaExterna {
         resource = webTarget;        
         
         List<RegistroExistenciaCLI> bitacora = resource.path("listarExistencias")
-                                                    .request(MediaType.APPLICATION_JSON)
-                                                    .get(new GenericType<List<RegistroExistenciaCLI>>(){});       
+                                                        .request(MediaType.APPLICATION_JSON)
+                                                        .get(new GenericType<List<RegistroExistenciaCLI>>(){});       
         return bitacora;
     }
     
     public List<RegistroExistenciaCLI> agregarExistencia(RegistroExistenciaCLI re){
         resource = webTarget;
         List<RegistroExistenciaCLI> bitacora = resource.path("agregarExistencia")
-                                                    .request(MediaType.APPLICATION_JSON)
-                                                    .put(Entity.entity(re, MediaType.APPLICATION_JSON),new GenericType<List<RegistroExistenciaCLI>>(){});
+                                                        .request(MediaType.APPLICATION_JSON)
+                                                        .post(Entity.entity(re, MediaType.APPLICATION_JSON),new GenericType<List<RegistroExistenciaCLI>>(){});
         return bitacora;
     }
     
-    public RegistroExistenciaCLI buscarExistencia(int IdSurtidor,String clave){        
+    public List<RegistroExistenciaCLI> buscarExistencia(int IdSurtidor,String clave){        
         resource = webTarget;
-        RegistroExistenciaCLI re = resource.path(MessageFormat.format("buscarExistencia/{0}/{1}", new Object[]{IdSurtidor, clave}))
-                                                            .request()
-                                                            .post(null, new GenericType<RegistroExistenciaCLI>(){});       
-        return re;
+        List<RegistroExistenciaCLI> bitacora = resource.path(MessageFormat.format("buscarExistencia/{0}/{1}", new Object[]{IdSurtidor, clave}))
+                                                        .request(MediaType.APPLICATION_JSON)
+                                                        .get(new GenericType<List<RegistroExistenciaCLI>>(){});       
+        return bitacora;
     }
 }
