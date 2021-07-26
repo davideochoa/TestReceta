@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package testreceta;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 public class RegistroExistenciaCLI {
     private int idSurtidor = 0;
     private String clave = "";
     private int cantidad  = 0;
-    private String fecha;
+    @XmlJavaTypeAdapter(value = TimestampAdapter.class, type = Timestamp.class)
+    private Timestamp fecha;
     public RegistroExistenciaCLI() {}
         
     public RegistroExistenciaCLI(int idSurtidor, String clave, int cantidad) {
@@ -26,15 +23,17 @@ public class RegistroExistenciaCLI {
         this.setClave(clave);
         this.setCantidad(cantidad);
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyyy HH:mm:ss");        
-        this.setFecha(format.format(timestamp));
+        this.setFecha(timestamp);
     }
-
-    public String getFecha() {
+    
+    @XmlJavaTypeAdapter(value = TimestampAdapter.class, type = Timestamp.class)
+    public Timestamp getFecha() {
         return fecha;
     }
-
-    public void setFecha(String timestamp) {
-        this.fecha = timestamp;
+    
+    @XmlJavaTypeAdapter(value = TimestampAdapter.class, type = Timestamp.class)
+    public void setFecha(Timestamp timestamp) {
+        this.fecha = (Timestamp) timestamp.clone();
     }
 
     public int getIdSurtidor() {
