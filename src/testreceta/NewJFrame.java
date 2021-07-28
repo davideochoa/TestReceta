@@ -5,7 +5,6 @@
  */
 package testreceta;
 
-import jakarta.json.bind.annotation.JsonbDateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
